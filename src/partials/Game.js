@@ -37,14 +37,21 @@ export default class Game {
 			this.ball = new Ball(
 				this.r,
 				this.width,
-				this.height,
-				this.width/2,
-				this.height/2);
+				this.height);
+
+			document.addEventListener('keydown', event => {
+					if (event.key === KEYS.spaceBar){
+							this.pause = !this.pause;
+					}
+			});
 			
 
 	}
 
 	render() {
+				if (this.pause){
+					return;
+				}
 			this.gameElement.innerHTML = '' ;
 			let svg = document.createElementNS(SVG_NS, 'svg');
 			svg.setAttributeNS(null, 'width', this.width);
@@ -57,7 +64,7 @@ export default class Game {
 			this.board.render(svg);
 			this.paddle1.render(svg);
 			this.paddle2.render(svg);
-			this.ball.render(svg);
+			this.ball.render(svg, this.paddle1, this.paddle2);
 
 
 	}

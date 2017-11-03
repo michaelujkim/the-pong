@@ -21,6 +21,15 @@ export default class Paddle {
       }
     });
   }
+
+  coordinates(x, y, width, height) {
+    let leftX = x;
+    let rightX = x + width;
+    let topY = y;
+    let bottomY = y + height;
+    return [leftX, rightX, topY, bottomY];
+  }
+  
   up(){
     //get max number
     this.y = Math.max(this.y - this.speed,0);
