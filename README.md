@@ -64,3 +64,4 @@ Must run NPM install and web pack in terminal to run program and then run webpac
 
 * Thanks to the staff and students at RED Academy
 
+![Screen Shot](screenshot.png "pong")
